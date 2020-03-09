@@ -5,13 +5,25 @@ import br.edu.ifsp.arq.dmos5_2020s1.exception.InvalidData;
 public class ConvertTemperature {
 
 
-    public static double convertToCelsius(final double fahrenheit) throws InvalidData {
+    public static double convertToCelsius(final String fahrenheit) throws InvalidData {
 
-        if(fahrenheit == Double.parseDouble(null)) {
-            throw new InvalidData("Valor não pode ser null");
+        try {
+            return (Double.parseDouble(fahrenheit) - 32) / 1.8;
+        } catch (Exception e) {
+            throw new InvalidData("Valor Invalido");
         }
 
-        return (fahrenheit - 32) / 1.8;
+    }
+
+
+    public static double convertToFahrenheit(final String celsius) throws InvalidData {
+
+        try {
+            return 1.8 * Double.parseDouble(celsius) + 32;
+        } catch (Exception e) {
+            throw new InvalidData("Valor Invalido");
+        }
+
     }
 
 }
