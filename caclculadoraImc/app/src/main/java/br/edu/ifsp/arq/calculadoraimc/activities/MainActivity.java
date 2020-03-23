@@ -2,6 +2,8 @@ package br.edu.ifsp.arq.calculadoraimc.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -19,6 +21,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private EditText alturaEditText;
 
     private Button calcularButton;
+
+    public static final String KEY_PESO = "peso";
+
+    public static final String KEY_ALTURA = "altura";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,8 +60,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if(peso == 0 || altura == 0) {
             Toast.makeText(this, "Entrada de dados inválida", Toast.LENGTH_SHORT).show();
         } else {
-            pessoa = new Pessoa(altura, peso);
-            Toast.makeText(this, String.format("IMC: %.1f", pessoa.imc()), Toast.LENGTH_LONG).show();
+            Bundle argumentos = new Bundle();
+            argumentos.putDouble(MainActivity.KEY_PESO, peso);
+            argumentos.putDouble(MainActivity.KEY_ALTURA, altura);
+
+            Intent novaTela = new Intent(this, DetalhesImcActivity.class);
+            novaTela.putExtras(argumentos);
+            startActivity(novaTela);
         }
     }
 }

@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Calculadora DMOS5</string>
+    <string name="resusltado_zero">0.0</string>
+    <string name="limpar">c</string>
+    <string name="potencia">^</string>
+    <string name="dividir">/</string>
+    <string name="numero_7">7</string>
+    <string name="numero_8">8</string>
+    <string name="numero_9">9</string>
+    <string name="vezes">x</string>
+    <string name="numero_4">4</string>
+    <string name="numero_6">6</string>
+    <string name="menos">-</string>
+    <string name="numero_1">1</string>
+    <string name="numero_3">3</string>
+    <string name="mais">+</string>
+    <string name="numero_0">0</string>
+    <string name="ponto">.</string>
+    <string name="igual">=</string>
+</resources>

@@ -1,3 +1,23 @@
 <resources>
-    <string name="app_name">CalculadoraImc</string>
+    <string name="app_name">IMC Calculadora</string>
+    <string name="peso_kg">Peso (KG):</string>
+    <string name="hint_peso">Ex. 70.5</string>
+    <string name="altura_m">Altura (M):</string>
+    <string name="hint_altura">Ex. 1.70</string>
+    <string name="botao_calcular_imc">Calcular IMC</string>
+    <string name="xxxx">XXXX</string>
+    <string name="seu_imc">seu imc</string>
+    <string name="resultado">Resultado</string>
+    <string name="abaixo_do_peso">Abaixo do Peso</string>
+    <string name="peso_normal">Peso normal</string>
+    <string name="sobrepeso">Sobrepeso</string>
+    <string name="obeso_grau_1">Obesidade grau 1</string>
+    <string name="obeso_grau_2">Obesidade grau 2</string>
+    <string name="obeso_grau_3">Obesidade grau 3</string>
+    <string name="resultado_abaixo_do_peso">resultado Abaixo do peso</string>
+    <string name="resultado_peso_normal">resultado Peso normal</string>
+    <string name="resultado_sobrepeso">resultado_sobrepeso</string>
+    <string name="resultado_grau_1">resultado grau 1</string>
+    <string name="resultado_grau_2">resultado grau 2</string>
+    <string name="resultado_grau_3">resultado grau 3</string>
 </resources>
