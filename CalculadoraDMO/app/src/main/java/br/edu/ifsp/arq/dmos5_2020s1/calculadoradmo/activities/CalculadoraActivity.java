@@ -1,12 +1,11 @@
 package br.edu.ifsp.arq.dmos5_2020s1.calculadoradmo.activities;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import br.edu.ifsp.arq.dmos5_2020s1.calculadoradmo.R;
 import br.edu.ifsp.arq.dmos5_2020s1.calculadoradmo.constants.Constantes;
@@ -23,6 +22,8 @@ public class CalculadoraActivity extends AppCompatActivity implements View.OnCli
     private Button buttonUm, buttonDois, buttonTres, buttonMais;
 
     private Button buttonZero, buttonPonto, buttonIgual;
+
+    private Button buttonLimparParcial, buttonPotencia;
 
     private TextView textViewResultado;
 
@@ -86,6 +87,12 @@ public class CalculadoraActivity extends AppCompatActivity implements View.OnCli
         buttonIgual = findViewById(R.id.button_igual);
         buttonIgual.setOnClickListener(this);
 
+        buttonLimparParcial = findViewById(R.id.button_ce);
+        buttonLimparParcial.setOnClickListener(this);
+
+        buttonPotencia = findViewById(R.id.button_potencia);
+        buttonPotencia.setOnClickListener(this);
+
         textViewResultado = findViewById(R.id.textview_lcd);
 
     }
@@ -94,39 +101,43 @@ public class CalculadoraActivity extends AppCompatActivity implements View.OnCli
     public void onClick(View view) {
         if(view == buttonLimpar) {
             operacoes.limpar();
-            textViewResultado.setText("0.0");
+            textViewResultado.setText(getString(R.string.zero_zero));
         } else if(view == buttonDividir) {
             operacoes.insereOperacao(Constantes.DIVISAO);
         } else if(view == buttonSete) {
-            textViewResultado.setText(String.valueOf(operacoes.insereNumero("7")));
+            textViewResultado.setText(String.valueOf(operacoes.insereNumero(getString(R.string.sete))));
         } else if(view == buttonOito) {
-            textViewResultado.setText(String.valueOf(operacoes.insereNumero("8")));
+            textViewResultado.setText(String.valueOf(operacoes.insereNumero(getString(R.string.oito))));
         } else if(view == buttonNove) {
-            textViewResultado.setText(String.valueOf(operacoes.insereNumero("9")));
+            textViewResultado.setText(String.valueOf(operacoes.insereNumero(getString(R.string.nove))));
         } else if(view == buttonMultiplicacao) {
             operacoes.insereOperacao(Constantes.MULTIPLICACAO);
         } else if(view == buttonQuatro) {
-            textViewResultado.setText(String.valueOf(operacoes.insereNumero("4")));
+            textViewResultado.setText(String.valueOf(operacoes.insereNumero(getString(R.string.quatro))));
         } else if(view == buttonCinco) {
-            textViewResultado.setText(String.valueOf(operacoes.insereNumero("5")));
+            textViewResultado.setText(String.valueOf(operacoes.insereNumero(getString(R.string.cinco))));
         } else if(view == buttonSeis) {
-            textViewResultado.setText(String.valueOf(operacoes.insereNumero("6")));
+            textViewResultado.setText(String.valueOf(operacoes.insereNumero(getString(R.string.seis))));
         } else if(view == buttonMenos) {
             operacoes.insereOperacao(Constantes.SUBTRACAO);
         } else if(view == buttonUm) {
-            textViewResultado.setText(String.valueOf(operacoes.insereNumero("1")));
+            textViewResultado.setText(String.valueOf(operacoes.insereNumero(getString(R.string.um))));
         } else if(view == buttonDois) {
-            textViewResultado.setText(String.valueOf(operacoes.insereNumero("2")));
+            textViewResultado.setText(String.valueOf(operacoes.insereNumero(getString(R.string.dois))));
         } else if(view == buttonTres) {
-            textViewResultado.setText(String.valueOf(operacoes.insereNumero("3")));
+            textViewResultado.setText(String.valueOf(operacoes.insereNumero(getString(R.string.tres))));
         } else if(view == buttonMais) {
             operacoes.insereOperacao(Constantes.ADICAO);
         } else if(view == buttonZero) {
-            textViewResultado.setText(String.valueOf(operacoes.insereNumero("0")));
+            textViewResultado.setText(String.valueOf(operacoes.insereNumero(getString(R.string.zero))));
         } else if(view == buttonPonto) {
             operacoes.inserePonto();
-        } else if (view == buttonIgual){
+        } else if(view == buttonIgual){
             textViewResultado.setText(operacoes.calcular());
+        } else if(view == buttonLimparParcial) {
+            textViewResultado.setText(operacoes.limparParcial());
+        } else if (view == buttonPotencia) {
+            operacoes.insereOperacao(Constantes.POTENCIA);
         }
     }
 }

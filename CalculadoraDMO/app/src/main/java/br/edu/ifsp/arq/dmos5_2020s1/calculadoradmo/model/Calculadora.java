@@ -1,5 +1,7 @@
 package br.edu.ifsp.arq.dmos5_2020s1.calculadoradmo.model;
 
+import java.math.BigDecimal;
+
 import br.edu.ifsp.arq.dmos5_2020s1.calculadoradmo.constants.Constantes;
 
 public class Calculadora {
@@ -41,6 +43,9 @@ public class Calculadora {
                     break;
                 case Constantes.DIVISAO:
                     memoria /= valor;
+                    break;
+                case Constantes.POTENCIA:
+                    memoria = new BigDecimal(Math.pow(memoria, valor)).floatValue();
                     break;
                 default:
                     break;

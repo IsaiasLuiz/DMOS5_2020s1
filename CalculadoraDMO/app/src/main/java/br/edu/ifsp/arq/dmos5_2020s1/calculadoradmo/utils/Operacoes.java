@@ -18,7 +18,7 @@ public class Operacoes {
         this.operacao = Constantes.NULO;
         this.primeroNumero = "";
         this.segundoNumero = "";
-        resultadoCalculo = "";
+        this.resultadoCalculo = "";
     }
 
     public void limpar() {
@@ -34,9 +34,10 @@ public class Operacoes {
 
     public String insereNumero(final String numero) {
 
-        if(operacao == Constantes.NULO) {
+        if(primeroNumero.isEmpty()) {
             primeroNumero = primeroNumero + numero;
             resultadoCalculo = primeroNumero;
+            operacao = Constantes.NULO;
             return primeroNumero;
         }
 
@@ -51,12 +52,17 @@ public class Operacoes {
     }
 
     public String calcular() {
-        calculadora.calcular(operacao, Float.valueOf(primeroNumero));
-        resultadoCalculo = String.valueOf(calculadora.calcular(operacao, Float.valueOf(segundoNumero)));
-        calculadora.c();
-        operacao = Constantes.NULO;
-        segundoNumero = "";
-        return resultadoCalculo;
+        if(!primeroNumero.isEmpty() && !segundoNumero.isEmpty()) {
+            calculadora.calcular(operacao, Float.valueOf(primeroNumero));
+            resultadoCalculo = String.valueOf(calculadora.calcular(operacao, Float.valueOf(segundoNumero)));
+            calculadora.c();
+            primeroNumero = "";
+            segundoNumero = "";
+
+            return resultadoCalculo;
+        }
+
+        return "0.0";
     }
 
 
@@ -68,6 +74,17 @@ public class Operacoes {
 
         segundoNumero = segundoNumero  + ".";
         return segundoNumero;
+    }
+
+    public String limparParcial() {
+        if(segundoNumero.isEmpty()) {
+            primeroNumero = "";
+            resultadoCalculo = "";
+            return "0.0";
+        }
+
+        segundoNumero = "";
+        return primeroNumero;
     }
 
 }
